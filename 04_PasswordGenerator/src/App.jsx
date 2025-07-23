@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -6,6 +6,25 @@ function App() {
   const [includeNum, setIncludeNum] = useState(false)
   const [includeChar, setIncludechar] = useState(false)
   const [password, setPassword] = useState("")
+
+  const passwordGenerator = useCallback(() => {
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    if (includeNum) characters += "0123456789";
+    if (includeChar) characters += "!@#$%^&*~";
+
+    let pass = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      pass += characters[randomIndex];
+    }
+
+    setPassword(pass);
+  }, [length, includeNum, includeChar, setPassword]);
+
+  useEffect(() => {
+    passwordGenerator()
+  },[length, includeNum, includeChar, passwordGenerator])
+
 
   return (
     <>
@@ -39,7 +58,7 @@ function App() {
               type="checkbox"
               defaultChecked={includeNum}
               id='checkNum'
-              onChange={prev => !prev}
+              onChange={() => setIncludeNum(prev => !prev)}
             />
             <label >Numbers</label>
           </div>
@@ -48,7 +67,7 @@ function App() {
               type="checkbox"
               defaultChecked={includeChar}
               id='checkChar'
-              onChange={prev => !prev}
+              onChange={() => setIncludechar(prev => !prev)}
             />
             <label >Characters</label>
           </div>
