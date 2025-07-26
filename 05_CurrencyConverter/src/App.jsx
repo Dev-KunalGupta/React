@@ -1,15 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { InputBox } from './components';
 import useCurrencyInfo from './hooks/useCurrencyInfo';
 
 function App() {
+  const [amount, setAmount] = useState(0)
+  const [from, setFrom] = useState("usd")
+  const [to, setTo] = useState("inr")
+  const [convertedAmount, setconvertedAmount] = useState(0)
 
+  const currencyInfo = useCurrencyInfo(from)
+  const options = Object.keys(currencyInfo)
+
+  const swap = () => {
+    setFrom(to)
+    setTo(from)
+    setconvertedAmount(amount)
+    setAmount(convertedAmount)
+  }
+
+  const convert = () => {
+    setconvertedAmount(amount * currencyInfo[to])
+  }
 
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
       style={{
-        backgroundImage: `url('${BackgroundImage}')`,
+        backgroundImage: `url('https://www.pexels.com/photo/stock-report-on-black-surface-7947707/')`,
       }}
     >
       <div className="w-full">
@@ -17,7 +34,7 @@ function App() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-
+              convert();
             }}
           >
             <div className="w-full mb-1">
