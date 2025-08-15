@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ThemeProvider } from './contexts/Theme'
 import Card from './components/Card'
 import ThemeBtn from './components/ThemeBtn'
@@ -38,4 +38,3 @@ function App() {
 }
 
 export default App
-first
