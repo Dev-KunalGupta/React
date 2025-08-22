@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useToDo } from "../contexts/ToDoContext";
 
-export const TodoForm = () => {
+const TodoForm = () => {
     const [todo, setTodo] = useState("")
-    const { addTodo } = useToDo()
+    const { addToDo } = useToDo()
 
     const add = (e) => {
         e.preventDefault()
         if (!todo) return
-        addTodo({ todo: todo, completed: false })
+        addToDo({ todo: todo, completed: false })
         setTodo("")
     }
     return (
@@ -26,3 +26,5 @@ export const TodoForm = () => {
         </form>
     );
 }
+
+export default TodoForm
