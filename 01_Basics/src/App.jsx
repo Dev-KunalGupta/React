@@ -1,5 +1,5 @@
 function App() {
-  const username = 'Kunal';
+  const username = 'Kunal Gupta';
 
   return (
     <>
