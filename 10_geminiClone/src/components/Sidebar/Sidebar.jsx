@@ -1,0 +1,37 @@
+import "./Sidebar.css"
+import { assets } from "../../assets/assets"
+
+export default () => {
+    return (
+        <div className="Sidebar">
+            <div className="top">
+                <img className="menu" src={assets.menu_icon} alt="" />
+
+                <div className="new-chat">
+                    <img src={assets.plus_icon} alt="" />
+                    <p>New Chat</p>
+                </div>
+                <div className="recent">
+                    <div className="recent-entry">
+                        <img src={assets.message_icon} alt="" />
+                        <p>What is React...</p>
+                    </div>
+                </div>
+            </div>
+            <div className="bottom">
+                <div className="bottom-icon recent-entry">
+                    <img src={assets.question_icon} alt="" />
+                    <p>Help</p>
+                </div>
+                <div className="bottom-icon recent-entry">
+                    <img src={assets.history_icon} alt="" />
+                    <p>Activity</p>
+                </div>
+                <div className="bottom-icon recent-entry">
+                    <img src={assets.setting_icon} alt="" />
+                    <p>Settings</p>
+                </div>
+            </div>
+        </div>
+    )
+}
