@@ -1,17 +1,14 @@
 import Button from './components/Button'
 import Header  from './components/Header'
 import TodoItem from './components/TodoItem'
+import Board from './TicTacToe/Board'
 
 function App() {
 
   return (
-    <div className="todo-container">
-      <Header title="Todo App"/>
-      <TodoItem item="Eat"/>
-      <TodoItem item="Sleep"/>
-      <TodoItem item="Repeat"/>
-      <Button/>
-    </div>
+    <>
+      <Board/>
+    </>
   )
 }
 
