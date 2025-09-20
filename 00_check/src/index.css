@@ -44,9 +44,11 @@
 
 /* CSS for Tic Tac Toe Game */
 
-/* .board-container{
-
-} */
+.board-container{
+  margin: auto;
+  height: 500px;
+  width: 500px;
+}
 
 .board-row{
   display: flex;
