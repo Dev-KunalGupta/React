@@ -33,7 +33,6 @@ const Board = () => {
     return false;
   }
 
-
   const isWinner = checkWinner()
 
   const resetGame = () => setState(Array(9).fill(null));
