@@ -37,7 +37,6 @@ const Board = () => {
 
   const resetGame = () => setState(Array(9).fill(null));
 
-
   return (
     <div className="board-container">
       {isWinner ? (
