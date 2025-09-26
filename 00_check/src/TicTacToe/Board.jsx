@@ -64,7 +64,6 @@ const Board = () => {
           </div>
         </>
       )}
-
     </div>
   )
 }
